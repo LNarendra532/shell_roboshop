@@ -6,7 +6,7 @@ ZONE_ID="Z0388521KFVW7JPV7X7D"
 DOMAIN_NAME="narendaws-84s.site"
 INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalouge" "user" "cart" "shipping" "payment" "dispatch" "frontend")
 
-for instance in $(INSTANCES[@])
+for instance in ${INSTANCES[@]}
 do
     INSTANCE_ID=$(aws ec2 run-instances --image-id $AMI_ID --instance-type t3.micro --key-name MyKeyPair --security-group-ids sg-0123456789abcdef0 --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=$instance}]' --query "Reservations[0].Instances[0].InstanceId" --output text)
 
