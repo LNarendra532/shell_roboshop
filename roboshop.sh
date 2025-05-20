@@ -20,9 +20,9 @@ do
 
     aws route53 change-resource-record-sets \
     --hosted-zone-id "$ZONE_ID" \
-    --change-batch '{
-        "Changes": [
-            {
+    --change-batch '
+    {
+        "Changes": [{
                 "Comment" : "creating or update the ROute 53 records for ROBOSHOP Project"
                 "Action": "UPSERT",
                 "ResourceRecordSet": {
