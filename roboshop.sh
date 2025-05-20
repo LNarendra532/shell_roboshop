@@ -1,7 +1,7 @@
 #!/bin/bash
 
 AMI_ID="ami-09c813fb71547fc4f"
-SG_ID="sg-0c8b40fccb45fd37f"R
+SG_ID="sg-0c8b40fccb45fd37f"
 ZONE_ID="Z0388521KFVW7JPV7X7D"
 DOMAIN_NAME="narendaws-84s.site"
 INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalouge" "user" "cart" "shipping" "payment" "dispatch" "frontend")
