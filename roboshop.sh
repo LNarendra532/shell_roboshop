@@ -1,7 +1,7 @@
 #!/bin/bash
 
 AMI_ID="ami-09c813fb71547fc4f"
-SG_ID="sg-0c8b40fccb45fd37f"
+SG_ID="sg-0c8b40fccb45fd37f"R
 ZONE_ID="Z0388521KFVW7JPV7X7D"
 DOMAIN_NAME="narendaws-84s.site"
 INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalouge" "user" "cart" "shipping" "payment" "dispatch" "frontend")
@@ -12,9 +12,9 @@ do
 
     if [ $instance !=  "frontend" ]
     then 
-        IP=$(aws ec2 describe-instances --instance-ids i-xxxxxxxxxxxx --query "Reservations[0].Instances[0].PrivateIpAddress" --output text)
+        IP=$(aws ec2 describe-instances --instance-ids $INSTANCE_ID --query "Reservations[0].Instances[0].PrivateIpAddress" --output text)
     else
-        IP=$(aws ec2 describe-instances --instance-ids i-xxxxxxxxxxxx --query "Reservations[0].Instances[0].PublicIpAddress" --output text)
+        IP=$(aws ec2 describe-instances --instance-ids $INSTANCE_ID --query "Reservations[0].Instances[0].PublicIpAddress" --output text)
     fi
     echo "$instance IP address is: $IP"
 
