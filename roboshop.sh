@@ -22,20 +22,18 @@ do
     --hosted-zone-id $ZONE_ID \
     --change-batch '
     {
-        "Changes": [{
-                "Comment" : "creating or update the ROute 53 records for ROBOSHOP Project"
-                "Action": "UPSERT",
-                "ResourceRecordSet": {
-                    "Name"  : "'$instance'.'$DOMAIN_NAME'",
-                    "Type"  : "A",
-                    "TTL"   : 1,
-                    "ResourceRecords": [
-                        {
-                            "Value": "'$IP'"
-                        }
-                        
-                    ]}
+        "Comment": "Creating or Updating a record set for cognito endpoint"
+        ,"Changes": [{
+        "Action"              : "UPSERT"
+        ,"ResourceRecordSet"  : {
+            "Name"              : "'$instance'.'$DOMAIN_NAME'"
+            ,"Type"             : "A"
+            ,"TTL"              : 1
+            ,"ResourceRecords"  : [{
+                "Value"         : "'$IP'"
             }]
+        }
+        }]
     }'
     
 done
